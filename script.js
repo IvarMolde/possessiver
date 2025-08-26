@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const questions = [
-        {
-            id: 1,
+        // Oppgave 1: Flervalg (Klikk på riktig possessiv)
+        {   
             type: 'multiple-choice',
             task: 'Oppgave 1: Klikk på riktig possessiv for å fullføre setningen.',
             questions: [
@@ -12,22 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'e', "q": "Jeg finner ikke nøklene ________.", "options": ["mine", "mi", "min"], "answer": "mine", "explanation": "Substantivet 'nøklene' er i flertall. Da er 'mine' korrekt."}
             ]
         },
+        // Oppgave 2: Fyll inn (Skriv inn riktig possessiv)
         {
-            id: 2,
-            type: 'multiple-choice',
-            task: 'Oppgave 2: Klikk på riktig possessiv for å fullføre setningen.',
+            type: 'fill-in-the-blank',
+            task: 'Oppgave 2: Fyll inn riktig possessiv i feltet.',
             questions: [
-                { id: 'a', q: "Hun skriver en melding til venninnen ________.", options: ["hennes", "sin", "si"], answer: "si", explanation: "Substantivet 'venninne' er hunkjønn, og 'si' er korrekt for hunkjønn i refleksiv sammenheng." },
-                { id: 'b', q: "De solgte huset ________ i fjor.", options: ["deres", "sitt", "sin"], answer: "sitt", explanation: "'Sitt' brukes når eieren er den samme som subjektet ('de'), og 'huset' er intetkjønn." },
-                { id: 'c', q: "Han passer på katten ________ hver dag.", options: ["hans", "sin", "sitt"], answer: "sin", explanation: "Katten tilhører 'han', som er subjektet. 'Katt' er hankjønn, så 'sin' er korrekt." },
-                { id: 'd', q: "Vi glemte billettene ________ hjemme.", options: ["vår", "vårt", "våre"], answer: "våre", explanation: "'Billetter' er flertall, så 'våre' er korrekt." },
-                { id: 'e', q: "Hun liker å gå på tur med hunden ________.", options: ["sin", "hennes", "sitt"], answer: "sin", explanation: "Hunden tilhører 'hun', som er subjektet. 'Hund' er hankjønn, så 'sin' er korrekt." }
+                { id: 'a', q: "Hun skriver en melding til venninnen ________.", answer: "si", explanation: "Substantivet 'venninne' er hunkjønn, og 'si' er korrekt for hunkjønn i refleksiv sammenheng." },
+                { id: 'b', q: "De solgte huset ________ i fjor.", answer: "sitt", explanation: "'Sitt' brukes når eieren er den samme som subjektet ('de'), og 'huset' er intetkjønn." },
+                { id: 'c', q: "Han passer på katten ________ hver dag.", answer: "sin", explanation: "Katten tilhører 'han', som er subjektet. 'Katt' er hankjønn, så 'sin' er korrekt." },
+                { id: 'd', q: "Vi glemte billettene ________ hjemme.", answer: "våre", explanation: "'Billetter' er flertall, så 'våre' er korrekt." },
+                { id: 'e', q: "Hun liker å gå på tur med hunden ________.", answer: "sin", explanation: "Hunden tilhører 'hun', som er subjektet. 'Hund' er hankjønn, så 'sin' er korrekt." }
             ]
         },
+        // Oppgave 3: Dra og slipp (Dra ordet til riktig plass)
         {
-            id: 3,
-            type: 'multiple-choice',
-            task: 'Oppgave 3: Klikk på riktig possessiv for å fullføre setningen.',
+            type: 'drag-and-drop',
+            task: 'Oppgave 3: Dra riktig possessiv til den stiplede linjen.',
             questions: [
                 { id: 'a', q: "Han har på seg jakka ________.", options: ["si", "sin", "sitt"], answer: "si", explanation: "'Jakke' er hunkjønn, og 'si' er korrekt for hunkjønn i refleksiv sammenheng." },
                 { id: 'b', q: "Vi feiret bursdagen til dattera ________ i går.", options: ["vår", "vårt", "våre"], answer: "vår", explanation: "'Datter' er hunkjønn. 'Vår' er korrekt possessiv for hunkjønn." },
@@ -36,27 +36,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 { id: 'e', q: "Vi setter pris på vennene ________.", options: ["vår", "vårt", "våre"], answer: "våre", explanation: "'Venner' er flertall. 'Våre' er korrekt." }
             ]
         },
+        // Oppgave 4: Velg riktig setning
         {
-            id: 4,
             type: 'correct-sentence',
             task: 'Oppgave 4: Klikk på den setningen som er grammatisk korrekt.',
             questions: [
-                { id: 'a', options: ["Hun jobben sin.", "Hun vasker jobben sin.", "Hun jobber med sin jobb."], answer: "Hun vasker jobben sin.", explanation: "Denne setningen er grammatisk korrekt, men for å holde den enklere har vi valgt å inkludere den i en annen oppgave." },
-                { id: 'b', options: ["Han tar godt vare på helsa si.", "Han tar godt vare på helsa hans.", "Han tar godt vare på helse hans."], answer: "Han tar godt vare på helsa si.", explanation: "Subjektet er 'han', så det refleksive possessivet 'si' er korrekt for det hunkjønne substantivet 'helsa'." },
-                { id: 'c', options: ["Hun pusser skoene sin.", "Hun pusser skoen sin.", "Hun pusser skoene sine."], answer: "Hun pusser skoene sine.", explanation: "Subjektet er 'hun' og substantivet 'skoene' er flertall. 'Sine' er den korrekte flertallsformen." },
-                { id: 'd', options: ["Vi solgte leiligheten vår i byen.", "Vi solgte leiligheten våre i byen.", "Vi selger leiligheten vår i byen."], answer: "Vi solgte leiligheten vår i byen.", explanation: "'Leiligheten' er hunkjønn, så 'vår' er korrekt. Verbformen 'solgte' er også korrekt i konteksten." },
-                { id: 'e', options: ["Jeg ringte til mora mi i går kveld.", "Jeg ringte til moren min i går kveld.", "Jeg ringte min mor i går kveld."], answer: "Jeg ringte til mora mi i går kveld.", explanation: "Både 'mora mi' og 'moren min' er korrekt norsk, men 'mora mi' er den mest vanlige varianten. Den første setningen er derfor korrekt."}
+                { id: 'a', options: ["Hun jobben sin.", "Hun jobber med sin jobb.", "Hun pusser skoen sin."], answer: "Hun pusser skoene sine.", explanation: "Flertallsordet 'skoene' skal ha flertallsformen 'sine' i denne refleksive sammenhengen." },
+                { id: 'b', options: ["Han tar godt vare på helsa si.", "Han tar godt vare på helsa hans.", "Han har på seg jakka sin."], answer: "Han tar godt vare på helsa si.", explanation: "Helsa er hunkjønn, og possessivet skal da være 'si' i refleksiv sammenheng." },
+                { id: 'c', options: ["Vi solgte leiligheten våre i byen.", "Jeg ringer til mora min i går kveld.", "Vi solgte leiligheten vår i byen."], answer: "Vi solgte leiligheten vår i byen.", explanation: "'Leilighet' er hunkjønn, og da skal possessivet være 'vår'. 'Våre' brukes for flertall." },
+                { id: 'd', options: ["Han glemte mobilen sin på bussen.", "Han glemte mobilen hans på bussen.", "Han glemte mobilen sin på bussen."], answer: "Han glemte mobilen sin på bussen.", explanation: "Mobilen tilhører 'han' selv, så det refleksive possessivet 'sin' er korrekt." },
+                { id: 'e', options: ["Vi elsker barna vår.", "Vi elsker barna våre.", "Vi elsker barna deres."], answer: "Vi elsker barna våre.", explanation: "'Barna' er flertall, så det korrekte possessivet er 'våre'." }
             ]
         },
+        // Oppgave 5: Fyll inn (Skriv inn riktig possessiv)
         {
-            id: 5,
-            type: 'multiple-choice',
-            task: 'Oppgave 5: Klikk på riktig possessiv for å fullføre setningen.',
+            type: 'fill-in-the-blank',
+            task: 'Oppgave 5: Fyll inn riktig possessiv i feltet.',
             questions: [
-                { id: 'a', q: "Han glemte mobilen ________ på bussen.", options: ["hans", "sin", "sitt"], answer: "sin", explanation: "Mobilen tilhører 'han', som er subjektet. 'Mobil' er hankjønn, så 'sin' er korrekt." },
-                { id: 'b', q: "Jeg ringer til mora ________ i går kveld.", options: ["mi", "min", "mitt"], answer: "mi", explanation: "'Mora' er hunkjønn, og 'mi' er den korrekte possessivformen." },
-                { id: 'c', q: "Hun spurte sjefen ________ om fri.", options: ["hennes", "si", "sin"], answer: "sin", explanation: "'Sjef' er hankjønn, og 'sin' brukes når subjektet ('hun') eier noe." },
-                { id: 'd', q: "Vi elsker barna ________.", options: ["vår", "vårt", "våre"], answer: "våre", explanation: "'Barn' er flertall i denne setningen. 'Våre' er korrekt for flertall." },
+                { id: 'a', q: "Jeg ringte til mora ________ i går kveld.", answer: "mi", explanation: "Mora er hunkjønn, og 'mi' er det korrekte possessivet." },
+                { id: 'b', q: "Hun pusser skoene ________.", answer: "sine", explanation: "Skoene er flertall, og 'sine' er korrekt flertallsform." },
+                { id: 'c', q: "De spiser frokosten ________ sammen med foreldrene.", answer: "sin", explanation: "'Frokosten' er hankjønn. 'Sin' er korrekt når eieren er subjektet i setningen ('de')." },
+                { id: 'd', q: "Vi elsker barna ________.", answer: "våre", explanation: "'Barna' er flertall, og da er 'våre' korrekt." },
+                { id: 'e', q: "Vi skal til leiligheten ________ i byen.", answer: "vår", explanation: "'Leilighet' er hunkjønn, og 'vår' er korrekt."}
             ]
         }
     ];
@@ -78,6 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreElement = document.getElementById('score');
     const progressBar = document.getElementById('quiz-progress-bar');
     const progressContainer = document.getElementById('quiz-progress-container');
+    const dragDropContainer = document.getElementById('drag-drop-container');
+    const dragWordsContainer = document.getElementById('drag-words');
+    const dropZone = document.getElementById('drop-zone');
 
     function updateProgressBar() {
         const totalQuestionsAnswered = questions.slice(0, currentTaskIndex).reduce((sum, task) => sum + task.questions.length, 0) + currentQuestionIndex;
@@ -101,34 +105,88 @@ document.addEventListener('DOMContentLoaded', () => {
         answered = false;
         feedbackMessage.textContent = '';
         nextButton.classList.add('hidden');
-        optionsContainer.classList.remove('hidden');
+        
+        // Skjul alle elementer og vis bare de som trengs for oppgaven
+        optionsContainer.classList.add('hidden');
+        dragDropContainer.classList.add('hidden');
         
         taskInfoElement.textContent = currentTask.task;
         
-        questionTextElement.textContent = `${currentQuestionIndex + 1}) ${currentQuestion.q}`;
-        optionsContainer.innerHTML = '';
+        const oldInput = questionTextElement.querySelector('.fill-in-the-blank');
+        if (oldInput) {
+            oldInput.remove();
+        }
 
-        if (currentTask.type === 'multiple-choice') {
-            currentQuestion.options.forEach(option => {
-                const button = document.createElement('button');
-                button.textContent = option;
-                button.classList.add('option');
-                button.setAttribute('role', 'radio');
-                button.setAttribute('aria-checked', 'false');
-                button.addEventListener('click', () => handleMultipleChoice(button, option, currentQuestion.answer, currentQuestion.explanation));
-                optionsContainer.appendChild(button);
-            });
-        } else if (currentTask.type === 'correct-sentence') {
-            optionsContainer.innerHTML = '';
-            currentQuestion.options.forEach(option => {
-                const button = document.createElement('button');
-                button.textContent = option;
-                button.classList.add('option');
-                button.setAttribute('role', 'radio');
-                button.setAttribute('aria-checked', 'false');
-                button.addEventListener('click', () => handleCorrectSentence(button, option, currentQuestion.answer, currentQuestion.explanation));
-                optionsContainer.appendChild(button);
-            });
+        switch (currentTask.type) {
+            case 'multiple-choice':
+                optionsContainer.classList.remove('hidden');
+                questionTextElement.textContent = `${currentQuestionIndex + 1}) ${currentQuestion.q}`;
+                optionsContainer.innerHTML = '';
+                currentQuestion.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.classList.add('option');
+                    button.setAttribute('role', 'radio');
+                    button.setAttribute('aria-checked', 'false');
+                    button.addEventListener('click', () => handleMultipleChoice(button, option, currentQuestion.answer, currentQuestion.explanation));
+                    optionsContainer.appendChild(button);
+                });
+                break;
+            case 'fill-in-the-blank':
+                optionsContainer.classList.add('hidden');
+                checkButton.classList.remove('hidden');
+                const parts = currentQuestion.q.split('__');
+                questionTextElement.innerHTML = '';
+                const questionNumber = document.createElement('span');
+                questionNumber.textContent = `${currentQuestionIndex + 1}) `;
+                questionTextElement.appendChild(questionNumber);
+                const beforeBlank = document.createElement('span');
+                beforeBlank.textContent = parts[0];
+                questionTextElement.appendChild(beforeBlank);
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.classList.add('fill-in-the-blank');
+                input.placeholder = '...';
+                questionTextElement.appendChild(input);
+                const afterBlank = document.createElement('span');
+                afterBlank.textContent = parts[1];
+                questionTextElement.appendChild(afterBlank);
+                input.focus();
+                break;
+            case 'drag-and-drop':
+                dragDropContainer.classList.remove('hidden');
+                checkButton.classList.remove('hidden');
+                questionTextElement.textContent = `${currentQuestionIndex + 1}) ${currentQuestion.q}`;
+                dragWordsContainer.innerHTML = '';
+                dropZone.textContent = 'Dra ordet hit...';
+                dropZone.classList.remove('filled-in', 'correct', 'incorrect');
+                currentQuestion.options.forEach(option => {
+                    const word = document.createElement('div');
+                    word.textContent = option;
+                    word.classList.add('draggable-word');
+                    word.draggable = true;
+                    word.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', option);
+                    });
+                    dragWordsContainer.appendChild(word);
+                });
+                dropZone.addEventListener('dragover', (e) => e.preventDefault());
+                dropZone.addEventListener('drop', (e) => handleDragDrop(e, currentQuestion.answer, currentQuestion.explanation));
+                break;
+            case 'correct-sentence':
+                optionsContainer.classList.remove('hidden');
+                questionTextElement.textContent = `${currentQuestionIndex + 1}) ${currentQuestion.task}`;
+                optionsContainer.innerHTML = '';
+                currentQuestion.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.classList.add('option');
+                    button.setAttribute('role', 'radio');
+                    button.setAttribute('aria-checked', 'false');
+                    button.addEventListener('click', () => handleCorrectSentence(button, option, currentQuestion.answer, currentQuestion.explanation));
+                    optionsContainer.appendChild(button);
+                });
+                break;
         }
     }
 
@@ -156,6 +214,50 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.classList.remove('hidden');
     }
 
+    function handleFillInTheBlank(correctAnswer, explanation) {
+        if (answered) return;
+        answered = true;
+        const inputField = questionTextElement.querySelector('.fill-in-the-blank');
+        const userAnswer = inputField.value.trim().toLowerCase();
+        
+        if (userAnswer === correctAnswer.toLowerCase()) {
+            inputField.classList.add('correct');
+            feedbackMessage.textContent = "Riktig! 🥳";
+            score++;
+        } else {
+            inputField.classList.add('incorrect');
+            feedbackMessage.textContent = `Feil svar. Det riktige svaret var "${correctAnswer}". ${explanation}`;
+        }
+        inputField.disabled = true;
+        scoreElement.textContent = score;
+        checkButton.classList.add('hidden');
+        nextButton.classList.remove('hidden');
+    }
+
+    function handleDragDrop(event, correctAnswer, explanation) {
+        event.preventDefault();
+        if (answered) return;
+        answered = true;
+        
+        const data = event.dataTransfer.getData('text/plain');
+        if (data === correctAnswer) {
+            dropZone.textContent = data;
+            dropZone.classList.add('filled-in', 'correct');
+            feedbackMessage.textContent = "Riktig! 🥳";
+            score++;
+        } else {
+            dropZone.textContent = data;
+            dropZone.classList.add('filled-in', 'incorrect');
+            const correctWord = document.createElement('div');
+            correctWord.textContent = correctAnswer;
+            correctWord.classList.add('correct');
+            feedbackMessage.textContent = `Feil svar. Det riktige svaret var "${correctAnswer}".`;
+        }
+        scoreElement.textContent = score;
+        nextButton.classList.remove('hidden');
+        dragWordsContainer.style.display = 'none';
+    }
+
     function handleCorrectSentence(selectedButton, selectedSentence, correctAnswer, explanation) {
         if (answered) return;
         answered = true;
@@ -180,6 +282,18 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.classList.remove('hidden');
     }
 
+    checkButton.addEventListener('click', () => {
+        const currentTask = questions[currentTaskIndex];
+        const currentQuestion = currentTask.questions[currentQuestionIndex];
+        
+        // Håndter sjekk-knapp for både 'fill-in-the-blank' og 'drag-and-drop'
+        if (currentTask.type === 'fill-in-the-blank') {
+            handleFillInTheBlank(currentQuestion.answer, currentQuestion.explanation);
+        } else if (currentTask.type === 'drag-and-drop') {
+            // Drag and drop har ikke en check-knapp i det jeg har satt opp, men jeg beholder denne for fremtidig utvidelse
+        }
+    });
+
     nextButton.addEventListener('click', () => {
         currentQuestionIndex++;
         if (currentQuestionIndex >= questions[currentTaskIndex].questions.length) {
@@ -194,8 +308,12 @@ document.addEventListener('DOMContentLoaded', () => {
         questionTextElement.textContent = "Quiz fullført! 🎉";
         optionsContainer.innerHTML = `<p>Du fikk ${score} av ${totalQuestions} poeng. Bra jobbet! ✨</p>`;
         nextButton.classList.add('hidden');
+        checkButton.classList.add('hidden');
         restartButton.classList.remove('hidden');
         feedbackMessage.textContent = "";
+        dragDropContainer.classList.add('hidden');
+        const inputField = questionTextElement.querySelector('.fill-in-the-blank');
+        if (inputField) inputField.remove();
         updateProgressBar();
     }
 
