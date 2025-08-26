@@ -37,6 +37,13 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+.source-credit {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 section {
     background-color: var(--card-background);
     padding: 2rem;
@@ -138,6 +145,26 @@ section {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+}
+
+.fill-in-the-blank {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 120px;
+    margin: 0 5px;
+}
+
+.fill-in-the-blank.correct {
+    background-color: var(--correct-color);
+    color: white;
+}
+
+.fill-in-the-blank.incorrect {
+    background-color: var(--incorrect-color);
+    color: white;
 }
 
 .options-container {
@@ -249,16 +276,6 @@ section {
     background-color: var(--secondary-color);
     color: white;
     border-radius: 5px;
-}
-
-.fill-in-the-blank {
-    padding: 10px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
-    width: 200px;
-    margin-bottom: 1.5rem;
 }
 
 footer {
