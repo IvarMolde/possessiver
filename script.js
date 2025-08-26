@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'fill-in-the-blank',
             task: 'Oppgave 2: Fyll inn riktig possessiv i feltet.',
             questions: [
-                { id: 'a', q: "Hun skriver en melding til venninnen ________.", answer: "si", explanation: "Substantivet 'venninne' er hunkjønn, og 'si' er korrekt for hunkjønn i refleksiv sammenheng." },
+                { id: 'a', q: "Hun skriver en melding til venninna ________.", answer: "si", explanation: "Substantivet 'venninne' er hunkjønn, og 'si' er korrekt for hunkjønn i refleksiv sammenheng." },
                 { id: 'b', q: "De solgte huset ________ i fjor.", answer: "sitt", explanation: "'Sitt' brukes når eieren er den samme som subjektet ('de'), og 'huset' er intetkjønn." },
                 { id: 'c', q: "Han passer på katten ________ hver dag.", answer: "sin", explanation: "Katten tilhører 'han', som er subjektet. 'Katt' er hankjønn, så 'sin' er korrekt." },
                 { id: 'd', q: "Vi glemte billettene ________ hjemme.", answer: "våre", explanation: "'Billetter' er flertall, så 'våre' er korrekt." },
@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'correct-sentence',
             task: 'Oppgave 4: Klikk på riktig setning.', // Overskriften er rettet her
             questions: [
-                { id: 'a', options: ["Hun jobben sin.", "Hun jobber med sin jobb.", "Hun pusser skoene sin."], answer: "Hun pusser skoene sine.", explanation: "Flertallsordet 'skoene' skal ha flertallsformen 'sine' i denne refleksive sammenhengen." },
-                { id: 'b', options: ["Han tar godt vare på helsa si.", "Han tar godt vare på helsa hans.", "Han har på seg jakka sin."], answer: "Han tar godt vare på helsa si.", explanation: "Helsa er hunkjønn, og possessivet skal da være 'si' i refleksiv sammenheng." },
-                { id: 'c', options: ["Vi solgte leiligheten våre i byen.", "Jeg ringer til mora min i går kveld.", "Vi solgte leiligheten vår i byen."], answer: "Vi solgte leiligheten vår i byen.", explanation: "'Leiligheten' er hunkjønn, og da skal possessivet være 'vår'. 'Våre' brukes for flertall." },
-                { id: 'd', options: ["Han glemte mobilen sin på bussen.", "Han glemte mobilen hans på bussen.", "Han glemte mobilen sin på bussen."], answer: "Han glemte mobilen sin på bussen.", explanation: "Mobilen tilhører 'han' selv, så det refleksive possessivet 'sin' er korrekt." },
-                { id: 'e', options: ["Vi elsker barna vår.", "Vi elsker barna våre.", "Vi elsker barna deres."], answer: "Vi elsker barna våre.", explanation: "'Barna' er flertall, så det korrekte possessivet er 'våre'." }
+                { id: 'a', options: ["Hun liker jobben sin.", "Hun liker jobben sitt.", "Hun liker jobben si."], answer: Hun liker jobben sin.", explanation: "Fordi "hun" eier "jobben," er det riktig å bruke det refleksive possessivet. "Jobben" er et hankjønnsord, og den korrekte formen i en slik kontekst er sin." },
+                { id: 'b', options: ["Han tar godt vare på helsa si.", "Han tar godt vare på helsa sitt.", "Han tar godt vare på helsa sine."], answer: "Han tar godt vare på helsa si.", explanation: "Helsa er hunkjønn, og possessivet skal da være 'si' i refleksiv sammenheng." },
+                { id: 'c', options: ["Vi solgte leiligheta vår i byen.", "Vi solgte leiligheta vårt i byen.", "Vi solgte leiligheta våre i byen."], answer: "Vi solgte leiligheta vår i byen.", explanation: "'Leiligheten' er hunkjønn, og da skal possessivet være 'vår'. 'Våre' brukes for flertall." },
+                { id: 'd', options: ["Han glemte mobilen sin på bussen.", "Han glemte mobilen hans på bussen.", "Han glemte mobilen sitt på bussen."], answer: "Han glemte mobilen sin på bussen.", explanation: "Mobilen tilhører 'han' selv, så det refleksive possessivet 'sin' er korrekt." },
+                { id: 'e', options: ["Vi elsker barna vår.", "Vi elsker barna våre.", "Vi elsker barna vårt."], answer: "Vi elsker barna våre.", explanation: "'Barna' er flertall, så det korrekte possessivet er 'våre'." }
             ]
         },
         // Oppgave 5: Fyll inn (Skriv inn riktig possessiv)
@@ -331,3 +331,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
     loadQuestion();
 });
+
