@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const allSentences = [
-        "Dette er min bok.",
-        "Hun jobben sin.",
+        "Det er boka mi.",
+        "Hun liker jobben sin.",
         "Han vasker bilen sin hver lørdag.",
         "Vi besøkte besteforeldrene våre i helgen.",
         "Barna spiser frokosten sin sammen med foreldrene.",
@@ -380,3 +380,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     loadQuestion();
 });
+
