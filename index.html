@@ -170,23 +170,18 @@
         <section class="quiz-container">
             <h2>Interaktive øvelser</h2>
             <p>Fullfør alle oppgavene for å teste kunnskapene dine!</p>
-            <div id="quiz-progress-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="25" aria-label="Fremdrift i quiz">
+            <div id="quiz-progress-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5" aria-label="Fremdrift i quiz">
                 <div id="quiz-progress-bar"></div>
             </div>
             <div id="score-container" aria-live="polite">
-                Poeng: <span id="score">0</span> / 24
+                Poeng: <span id="score">0</span> / 5
             </div>
             <div id="question-container">
                 <div id="task-info"></div>
                 <div id="question-text" class="question-text"></div>
                 <div id="options-container" class="options-container hidden" role="radiogroup"></div>
                 <div id="feedback-message" class="feedback-message" aria-live="polite"></div>
-                <div id="drag-drop-container" class="drag-drop-container hidden">
-                    <div id="drag-words" class="drag-words"></div>
-                    <div id="drop-zone" class="drop-zone"></div>
-                </div>
-                <button id="check-button" class="next-button hidden">Sjekk svaret</button>
-                <button id="next-button" class="next-button hidden">Neste oppgave</button>
+                <button id="next-button" class="next-button hidden">Neste spørsmål</button>
                 <button id="restart-button" class="next-button hidden">Prøv på nytt</button>
             </div>
         </section>
