@@ -1,64 +1,108 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const allSentences = [
+        "Dette er min bok.",
+        "Hun jobben sin.",
+        "Han vasker bilen sin hver lørdag.",
+        "Vi besøkte besteforeldrene våre i helgen.",
+        "Barna spiser frokosten sin sammen med foreldrene.",
+        "Jeg tar med meg sekken min til skolen.",
+        "Hun skriver en melding til venninnen sin.",
+        "De solgte huset sitt i fjor.",
+        "Han passer på katten sin hver dag.",
+        "Vi glemte billettene våre hjemme.",
+        "Hun liker å gå på tur med hunden sin.",
+        "Han har på seg jakka si.",
+        "Jeg finner ikke nøklene mine.",
+        "Vi feiret bursdagen til dattera vår i går.",
+        "Hun hjelper alltid broren sin.",
+        "Jeg snakket med læreren min i dag.",
+        "Vi setter pris på vennene våre.",
+        "Han tar godt vare på helsa si.",
+        "Hun pusser skoene sine.",
+        "Vi solgte leiligheten vår i byen.",
+        "Han glemte mobilen sin på bussen.",
+        "Jeg ringte til mora mi i går kveld.",
+        "Hun spurte sjefen sin om fri.",
+        "Vi elsker barna våre."
+    ];
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    const shuffledSentences = shuffle(allSentences);
     const questions = [
-        // Oppgave 1: Flervalg (Klikk på riktig alternativ)
-        {   
-            type: 'multiple-choice',
-            task: 'Oppgave 1: Klikk på riktig possessiv',
-            questions: [
-                { id: 'a', q: "Det er Anders. Han låner ________ bil.", options: ["hans", "sin"], answer: "hans", explanation: "Bilen tilhører Anders, som er subjektet i forrige setning. Men i denne setningen er subjektet 'han', så 'hans' er korrekt." },
-                { id: 'b', q: "Vi har en hytte. Det er ________ hytte.", options: ["vår", "vårt"], answer: "vår", explanation: "Substantivet 'hytte' er et hunkjønnsord, derfor brukes 'vår'." },
-                { id: 'c', q: "De har en hund. Hunden er ________.", options: ["deres", "sin"], answer: "deres", explanation: "'Deres' brukes når eieren er 'de'." },
-                { id: 'd', q: "Jeg har et eple. Det er ________ eple.", options: ["min", "mitt"], answer: "mitt", explanation: "Substantivet 'eple' er et intetkjønnsord, derfor brukes 'mitt'." },
-                { id: 'e', q: "Du har en sykkel. Det er ________ sykkel.", options: ["din", "di"], answer: "din", explanation: "Substantivet 'sykkel' er et hankjønnsord, derfor brukes 'din'." }
-            ]
-        },
-        // Oppgave 2: Fyll inn (Skriv inn riktig possessiv i feltet)
         {
             type: 'fill-in-the-blank',
-            task: 'Oppgave 2: Fyll inn riktig possessiv i feltet',
-            questions: [
-                { id: 'a', q: "De spiser __ mat.", answer: "sin", explanation: "Eieren er 'de' (subjektet i setningen), og de spiser sin egen mat, derfor 'sin'." },
-                { id: 'b', q: "Lars liker __ nye jobb.", answer: "sin", explanation: "Eieren 'Lars' er subjektet i setningen, derfor 'sin'." },
-                { id: 'c', q: "Jeg leter etter __ veske.", answer: "mi", explanation: "Substantivet 'veske' er et hunkjønnsord. Eieren er 'jeg', så 'mi' er korrekt." },
-                { id: 'd', q: "Dere har en ny bil. Det er __ nye bil.", answer: "deres", explanation: "Eieren er 'dere', og possessivet er 'deres'." },
-                { id: 'e', q: "Søsteren min lånte kameraet __.", answer: "sitt", explanation: "Subjektet er 'søsteren min', og 'kameraet' er et intetkjønnsord. 'Sitt' er korrekt for intetkjønn." }
-            ]
+            task: 'Oppgave 1: Fyll inn riktig possessiv',
+            questions: shuffledSentences.slice(0, 5).map((sentence, index) => {
+                const parts = sentence.split(' ');
+                const possessive = parts.find(word => ['min', 'mi', 'mitt', 'mine', 'din', 'di', 'ditt', 'dine', 'hans', 'hennes', 'vår', 'vårt', 'våre', 'deres', 'sin', 'sitt', 'si', 'sine'].includes(word.toLowerCase().replace('.', '')));
+                const questionText = sentence.replace(possessive, '__');
+                return { id: String.fromCharCode(97 + index), q: questionText, answer: possessive.replace('.', '') };
+            })
         },
-        // Oppgave 3: Dra og slipp (Dra ordet til riktig plass)
         {
-            type: 'drag-and-drop',
-            task: 'Oppgave 3: Dra riktig possessiv til den stiplede linjen',
-            questions: [
-                { id: 'a', q: "Hun elsker å lese ________ bøker.", options: ["sin", "sine"], answer: "sine", explanation: "Eieren er 'hun' (subjektet) og 'bøker' er flertall, derfor 'sine'." },
-                { id: 'b', q: "Foreldrene mine kjører ________ bil.", options: ["vår", "sin"], answer: "sin", explanation: "Subjektet er 'foreldrene', som bruker 'sin'." },
-                { id: 'c', q: "Jeg har en katt. Katten er ________.", options: ["min", "mitt"], answer: "min", explanation: "Substantivet 'katten' er hankjønn, derfor 'min'." },
-                { id: 'd', q: "Lærerne snakket med ________ elever.", options: ["sine", "deres"], answer: "sine", explanation: "Eieren 'lærerne' er subjektet i setningen, og de snakket med sine egne elever." },
-                { id: 'e', q: "Vi vasker ________ hender.", options: ["våre", "vårt"], answer: "våre", explanation: "Substantivet 'hender' er flertall, derfor 'våre'." }
-            ]
+            type: 'multiple-choice',
+            task: 'Oppgave 2: Klikk på riktig possessiv',
+            questions: shuffledSentences.slice(5, 10).map((sentence, index) => {
+                const parts = sentence.split(' ');
+                const possessive = parts.find(word => ['min', 'mi', 'mitt', 'mine', 'din', 'di', 'ditt', 'dine', 'hans', 'hennes', 'vår', 'vårt', 'våre', 'deres', 'sin', 'sitt', 'si', 'sine'].includes(word.toLowerCase().replace('.', '')));
+                
+                let options = [possessive.replace('.', '')];
+                const allPossessives = ['min', 'mi', 'mitt', 'vår', 'vårt', 'sine', 'sitt', 'sin', 'hennes', 'hans'];
+                while (options.length < 3) {
+                    const randomPossessive = allPossessives[Math.floor(Math.random() * allPossessives.length)];
+                    if (!options.includes(randomPossessive)) {
+                        options.push(randomPossessive);
+                    }
+                }
+
+                return { id: String.fromCharCode(97 + index), q: sentence.replace(possessive, '________'), options: shuffle(options), answer: possessive.replace('.', '') };
+            })
         },
-        // Oppgave 4: Marker ordet (Klikk på riktig possessiv i setningen)
         {
-            type: 'click-the-word',
-            task: 'Oppgave 4: Klikk på riktig possessiv i setningen',
-            questions: [
-                { id: 'a', q: "Han mistet <span class='word'>hans</span> <span class='word'>bilnøkkel</span>.", options: ["hans"], answer: "hans", explanation: "Possessivet 'hans' brukes for å vise eierskap fra 'han'." },
-                { id: 'b', q: "Det er <span class='word'>min</span> <span class='word'>mamma</span>.", options: ["min"], answer: "min", explanation: "Substantivet 'mamma' er hunkjønn, og possessivet kan stå foran i ubestemt form. 'Min' er korrekt." },
-                { id: 'c', q: "Hunden logret med <span class='word'>halene</span> <span class='word'>deres</span>.", options: ["halene", "deres"], answer: "halene", explanation: "Possessivet for 'hunden' er 'sin', men her skal du bare markere ordet som er feil." },
-                { id: 'd', q: "Barna leker med <span class='word'>deres</span> <span class='word'>baller</span>.", options: ["baller", "deres"], answer: "baller", explanation: "Subjektet er 'barna', og de leker med sine egne baller. 'Sine' er korrekt her, ikke 'deres'." },
-                { id: 'e', q: "Hun besøker <span class='word'>sin</span> søster.", options: ["sin"], answer: "sin", explanation: "Eieren er 'hun' (subjektet). 'Sin' er riktig her for å vise at hun besøker sin egen søster." }
-            ]
+            type: 'fill-in-the-blank',
+            task: 'Oppgave 3: Fyll inn riktig possessiv',
+            questions: shuffledSentences.slice(10, 15).map((sentence, index) => {
+                const parts = sentence.split(' ');
+                const possessive = parts.find(word => ['min', 'mi', 'mitt', 'mine', 'din', 'di', 'ditt', 'dine', 'hans', 'hennes', 'vår', 'vårt', 'våre', 'deres', 'sin', 'sitt', 'si', 'sine'].includes(word.toLowerCase().replace('.', '')));
+                const questionText = sentence.replace(possessive, '__');
+                return { id: String.fromCharCode(97 + index), q: questionText, answer: possessive.replace('.', '') };
+            })
         },
-        // Oppgave 5: Kombinert (Fyll inn + Drag and Drop)
         {
-            type: 'combined',
-            task: 'Oppgave 5: Kombinert',
-            questions: [
-                { id: 'a', q: "Anne og Per tok __ jakker og gikk.", options: ["sine", "deres"], answer: "sine", explanation: "Eierne (Anne og Per) er subjektet, så 'sine' er korrekt." },
-                { id: 'b', q: "Jeg fant den lille jentas lue. Det er __ lue.", answer: "hennes", explanation: "Eieren er 'den lille jenta' ('hun'), og 'hennes' brukes for å vise eierskap." },
-                { id: 'c', q: "Vi skal til __ hytte i helgen.", answer: "vår", explanation: "Substantivet 'hytte' er hunkjønn. Eieren er 'vi', så 'vår' er korrekt." },
-                { id: 'd', q: "Dere må ta __ paraplyer med dere.", answer: "deres", explanation: "Eieren er 'dere'. 'Deres' er korrekt." },
-                { id: 'e', q: "Mannen kjørte __ bil.", answer: "sin", explanation: "Eieren er 'mannen' (subjektet i setningen). 'Sin' er korrekt for å vise at det er hans egen bil." }
-            ]
+            type: 'multiple-choice',
+            task: 'Oppgave 4: Klikk på riktig possessiv',
+            questions: shuffledSentences.slice(15, 20).map((sentence, index) => {
+                const parts = sentence.split(' ');
+                const possessive = parts.find(word => ['min', 'mi', 'mitt', 'mine', 'din', 'di', 'ditt', 'dine', 'hans', 'hennes', 'vår', 'vårt', 'våre', 'deres', 'sin', 'sitt', 'si', 'sine'].includes(word.toLowerCase().replace('.', '')));
+                
+                let options = [possessive.replace('.', '')];
+                const allPossessives = ['min', 'mi', 'mitt', 'vår', 'vårt', 'sine', 'sitt', 'sin', 'hennes', 'hans'];
+                while (options.length < 3) {
+                    const randomPossessive = allPossessives[Math.floor(Math.random() * allPossessives.length)];
+                    if (!options.includes(randomPossessive)) {
+                        options.push(randomPossessive);
+                    }
+                }
+
+                return { id: String.fromCharCode(97 + index), q: sentence.replace(possessive, '________'), options: shuffle(options), answer: possessive.replace('.', '') };
+            })
+        },
+        {
+            type: 'fill-in-the-blank',
+            task: 'Oppgave 5: Fyll inn riktig possessiv',
+            questions: shuffledSentences.slice(20, 24).map((sentence, index) => {
+                const parts = sentence.split(' ');
+                const possessive = parts.find(word => ['min', 'mi', 'mitt', 'mine', 'din', 'di', 'ditt', 'dine', 'hans', 'hennes', 'vår', 'vårt', 'våre', 'deres', 'sin', 'sitt', 'si', 'sine'].includes(word.toLowerCase().replace('.', '')));
+                const questionText = sentence.replace(possessive, '__');
+                return { id: String.fromCharCode(97 + index), q: questionText, answer: possessive.replace('.', '') };
+            })
         }
     ];
 
@@ -67,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
     let answered = false;
     let quizActive = true;
+
+    const totalQuestions = questions.reduce((sum, task) => sum + task.questions.length, 0);
 
     const taskInfoElement = document.getElementById('task-info');
     const questionTextElement = document.getElementById('question-text');
@@ -84,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropZone = document.getElementById('drop-zone');
 
     function updateProgressBar() {
-        const totalQuestionsAnswered = currentTaskIndex * 5 + currentQuestionIndex;
-        const progress = (totalQuestionsAnswered / 25) * 100;
+        const totalQuestionsAnswered = questions.slice(0, currentTaskIndex).reduce((sum, task) => sum + task.questions.length, 0) + currentQuestionIndex;
+        const progress = (totalQuestionsAnswered / totalQuestions) * 100;
         progressBar.style.width = `${progress}%`;
         progressContainer.setAttribute('aria-valuenow', totalQuestionsAnswered);
     }
@@ -111,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         taskInfoElement.textContent = currentTask.task;
         
-        // Fjerner tidligere input-felt før ny oppgave lastes
         const oldInput = questionTextElement.querySelector('.fill-in-the-blank');
         if (oldInput) {
             oldInput.remove();
@@ -133,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 break;
             case 'fill-in-the-blank':
-            case 'combined': // Begge disse har fyll-inn-funksjon
+            case 'combined':
                 checkButton.classList.remove('hidden');
                 const parts = currentQuestion.q.split('__');
                 questionTextElement.innerHTML = '';
@@ -308,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function endQuiz() {
         quizActive = false;
         questionTextElement.textContent = "Quiz fullført! 🎉";
-        optionsContainer.innerHTML = `<p>Du fikk ${score} av 25 poeng. Bra jobbet! ✨</p>`;
+        optionsContainer.innerHTML = `<p>Du fikk ${score} av ${totalQuestions} poeng. Bra jobbet! ✨</p>`;
         nextButton.classList.add('hidden');
         checkButton.classList.add('hidden');
         restartButton.classList.remove('hidden');
