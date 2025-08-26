@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       questions: [
         {
           id: "a",
-          q: "De spiser ________ mat.",
+          q: "De spiser maten ________.",
           answer: "sin",
           explanation:
             "Eieren er 'de' (subjektet i setningen), og de spiser sin egen mat, derfor 'sin'.",
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           id: "c",
-          q: "Jeg leter etter ________ veske.",
+          q: "Jeg leter etter veska ________.",
           answer: "mi",
           explanation:
             "Substantivet 'veske' er et hunkjønnsord. Eieren er 'jeg', så 'mi' er korrekt.",
@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           id: "e",
-          q: "Søsteren min lånte kameraet ________.",
-          answer: "sitt",
+          q: "Jeg har et fint kamera. Søstera mi lånte kameraet ________.",
+          answer: "mitt",
           explanation:
-            "Subjektet er 'søsteren min', og 'kameraet' er et intetkjønnsord. 'Sitt' er korrekt for intetkjønn.",
+            "Subjektet er 'søstera mi', og 'kameraet' er et intetkjønnsord. 'Mitt' er korrekt for intetkjønn.",
         },
       ],
     },
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       questions: [
         {
           id: "a",
-          q: "Hun elsker å lese ________ bøker.",
+          q: "Hun elsker å lese i  bøkene ________ om kvelden.",
           options: ["sin", "sine"],
           answer: "sine",
           explanation:
@@ -101,10 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           id: "b",
-          q: "Foreldrene mine kjører ________ bil.",
-          options: ["vår", "sin"],
-          answer: "sin",
-          explanation: "Subjektet er 'foreldrene', som bruker 'sin'.",
+          q: "Jeg han en gammel bil. Det er feil på bilen. Bilen ________ må på verksted.",
+          options: ["min", "mitt"],
+          answer: "min",
+          explanation: "Subjektet er 'Jeg', som bruker eiendomsordet 'min'.",
         },
         {
           id: "c",
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           id: "d",
-          q: "Lærerne snakket med ________ elever.",
+          q: "Lærerne snakket med elevene ________.",
           options: ["sine", "deres"],
           answer: "sine",
           explanation:
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           id: "e",
-          q: "Vi vasker ________ hender.",
+          q: "Vi vasker hendene ________.",
           options: ["våre", "vårt"],
           answer: "våre",
           explanation: "Substantivet 'hender' er flertall, derfor 'våre'.",
