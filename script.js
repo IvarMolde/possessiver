@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Oppgave 4: Velg riktig setning
         {
             type: 'correct-sentence',
-            task: 'Oppgave 4: Klikk på den setningen som er grammatisk korrekt.',
+            task: 'Oppgave 4: Klikk på riktig setning.', // Overskriften er rettet her
             questions: [
-                { id: 'a', options: ["Hun jobben sin.", "Hun jobber med sin jobb.", "Hun pusser skoen sin."], answer: "Hun pusser skoene sine.", explanation: "Flertallsordet 'skoene' skal ha flertallsformen 'sine' i denne refleksive sammenhengen." },
+                { id: 'a', options: ["Hun jobben sin.", "Hun jobber med sin jobb.", "Hun pusser skoene sin."], answer: "Hun pusser skoene sine.", explanation: "Flertallsordet 'skoene' skal ha flertallsformen 'sine' i denne refleksive sammenhengen." },
                 { id: 'b', options: ["Han tar godt vare på helsa si.", "Han tar godt vare på helsa hans.", "Han har på seg jakka sin."], answer: "Han tar godt vare på helsa si.", explanation: "Helsa er hunkjønn, og possessivet skal da være 'si' i refleksiv sammenheng." },
-                { id: 'c', options: ["Vi solgte leiligheten våre i byen.", "Jeg ringer til mora min i går kveld.", "Vi solgte leiligheten vår i byen."], answer: "Vi solgte leiligheten vår i byen.", explanation: "'Leilighet' er hunkjønn, og da skal possessivet være 'vår'. 'Våre' brukes for flertall." },
+                { id: 'c', options: ["Vi solgte leiligheten våre i byen.", "Jeg ringer til mora min i går kveld.", "Vi solgte leiligheten vår i byen."], answer: "Vi solgte leiligheten vår i byen.", explanation: "'Leiligheten' er hunkjønn, og da skal possessivet være 'vår'. 'Våre' brukes for flertall." },
                 { id: 'd', options: ["Han glemte mobilen sin på bussen.", "Han glemte mobilen hans på bussen.", "Han glemte mobilen sin på bussen."], answer: "Han glemte mobilen sin på bussen.", explanation: "Mobilen tilhører 'han' selv, så det refleksive possessivet 'sin' er korrekt." },
                 { id: 'e', options: ["Vi elsker barna vår.", "Vi elsker barna våre.", "Vi elsker barna deres."], answer: "Vi elsker barna våre.", explanation: "'Barna' er flertall, så det korrekte possessivet er 'våre'." }
             ]
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dragDropContainer = document.getElementById('drag-drop-container');
     const dragWordsContainer = document.getElementById('drag-words');
     const dropZone = document.getElementById('drop-zone');
+    const checkButton = document.getElementById('check-button');
 
     function updateProgressBar() {
         const totalQuestionsAnswered = questions.slice(0, currentTaskIndex).reduce((sum, task) => sum + task.questions.length, 0) + currentQuestionIndex;
@@ -105,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         answered = false;
         feedbackMessage.textContent = '';
         nextButton.classList.add('hidden');
+        checkButton.classList.add('hidden');
         
         // Skjul alle elementer og vis bare de som trengs for oppgaven
         optionsContainer.classList.add('hidden');
@@ -286,11 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentTask = questions[currentTaskIndex];
         const currentQuestion = currentTask.questions[currentQuestionIndex];
         
-        // Håndter sjekk-knapp for både 'fill-in-the-blank' og 'drag-and-drop'
         if (currentTask.type === 'fill-in-the-blank') {
             handleFillInTheBlank(currentQuestion.answer, currentQuestion.explanation);
-        } else if (currentTask.type === 'drag-and-drop') {
-            // Drag and drop har ikke en check-knapp i det jeg har satt opp, men jeg beholder denne for fremtidig utvidelse
         }
     });
 
